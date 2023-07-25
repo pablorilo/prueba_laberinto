@@ -28,31 +28,33 @@ Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, 
 1. Clona el repositorio en tu sistema local.
 2. Abre una terminal o línea de comandos en la ubicación del repositorio clonado.
 3. Crear entorno virtual e instalar dependencias: 
-        En el proyecto consta  de un requirements.txt con las dependencias necesarias para ejecutar el programa, para instaslar dichas dependencias ejecutaremos los siguientes comandos en el terminal dentro de la carpeta del proyecto
+    En el proyecto consta  de un requirements.txt con las dependencias necesarias para ejecutar el programa, para instaslar dichas dependencias ejecutaremos los siguientes comandos en el terminal dentro de la carpeta del proyecto
 
-        Creamos un entorno virual:
-        * En Windows:
+    Creamos un entorno virual:
+    * En Windows:
 
-        ```python -m venv labenv```
+    ```python -m venv labenv```
 
-        * En macOS y Linux::
+    * En macOS y Linux::
 
-        ```python3 -m venv myenv```
+    ```python3 -m venv myenv```
 
-        Activamos el entorno 
-        * En Windows:
+    Activamos el entorno 
+    * En Windows:
 
-        ```labenv\Scripts\activate```
+    ```labenv\Scripts\activate```
 
-        * En macOS y Linux:
+    * En macOS y Linux:
 
-        ```source myenv/bin/activate```
+    ```source myenv/bin/activate```
 
-        Volvemos a la carpeta raiz ejecutando dos veces cd..
+    Volvemos a la carpeta raiz ejecutando dos veces cd..
 
-        Con el entorno virtual activado instalamos las dependencias 
+    Con el entorno virtual activado instalamos las dependencias.
 
-        ```pip install -r requirements.txt```
+    ```pip install -r requirements.txt```
+       
+
 4. En el fichero main.py introduce el laberinto
 5. Ejecuta el programa con el siguiente comando:
 

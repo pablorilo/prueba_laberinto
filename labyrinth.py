@@ -1,26 +1,4 @@
-class Box:
-  def __init__(self,  row , column, orientation):
-    """
-        Constructor de la clase Box que genera la barra.
-
-        Parámetros:
-        - row (int): La fila de la celda de referencia del objeto.
-        - column (int): La columna de la celda de referencia del objeto.
-        - orientation (str): La orientación del objeto ('H' para horizontal, 'V' para vertical).
-    """
-    self.column = column
-    self.row = row
-    self.orientation = orientation
-
-  def get_orientation(self):
-      """
-        Obtiene la orientación actual del objeto.
-
-        Retorna:
-        str: La orientación actual del objeto ('H' para horizontal, 'V' para vertical).
-      """
-      return self.orientation
-
+from box import Box
 
 class Labyrinth:
   def __init__(self,lab):
@@ -33,8 +11,8 @@ class Labyrinth:
     self.labyrinth = lab
     self.start = [0,1]
     self.final = [len(lab)-2, len(lab[0])-1]  # obtenemos la posición de salida de la celda central
-    self.position = 'H' #posicion horizontal
-    self.box = Box(self.start[0], self.start[1], self.position)
+    self.orientation = 'H' #posicion horizontal
+    self.box = Box(self.start[0], self.start[1], self.orientation)
     self.way = []
     self.visited_cells = {} 
     
@@ -77,7 +55,7 @@ class Labyrinth:
                   self.labyrinth[row + 1][column] == '.' and \
                   self.labyrinth[row + 1][column - 1] == '.'
         if self.box.get_orientation() == 'V':
-            return row + 2 < len(self.labyrinth)-1 and \
+            return row + 2 <= len(self.labyrinth)-1 and \
                   self.labyrinth[row + 2][column] == '.'
 
       if direction == "right":
@@ -111,4 +89,11 @@ class Labyrinth:
                 self.labyrinth[row][column - 1] == '.' and \
                 self.labyrinth[row][column + 1] == '.'
 
+  def get_next_moves(self,row, column, position):
+    # Retorna una lista con todas las direcciones válidas a las que se puede mover
+    valid_moves = []
+    for direction in ['right', 'down' , 'rotation', 'up', 'left']:
+      if self.can_move(row, column, direction):
+        valid_moves.append(direction)
+    return valid_moves
   
