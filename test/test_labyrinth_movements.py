@@ -1,16 +1,17 @@
 import pytest
 from labyrinth import Labyrinth, Box
 
+# Definición de la fixture(permiten datos o configuraciones que se pueden reutilizar en múltiples pruebas.) 'labyrinth' que crea una instancia de la clase Labyrinth con un laberinto predefinido.
 @pytest.fixture
 def labyrinth():
-    maze = [
+    lab = [
         ['.', '.', '.', '.', '.', '.'],
         ['.', '#', '.', '#', '.', '.'],
         ['.', '.', '.', '.', '.', '.'],
         ['.', '.', '#', '.', '#', '.'],
         ['.', '.', '.', '.', '.', '.'],
     ]
-    return Labyrinth(maze)
+    return Labyrinth(lab)
 
 def test_can_move(labyrinth):
     # Prueba para una posición válida en la parte superior izquierda del laberinto

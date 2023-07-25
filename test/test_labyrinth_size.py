@@ -4,7 +4,7 @@ from labyrinth import Labyrinth
 
 
 # Test para verificar que el método check_labyrinth_size devuelve el resultado esperado para diferentes laberintos
-@pytest.mark.parametrize("maze, expected_result", [
+@pytest.mark.parametrize("lab, expected_result", [
     ([
         ['.', '.', '.'],
         ['.', '#', '.'],
@@ -26,6 +26,6 @@ from labyrinth import Labyrinth
         ['.', '.']
     ], False)  # Laberinto con filas de diferentes tamaños
 ])
-def test_check_labyrinth_size(maze, expected_result):
-    labyrinth = Labyrinth(maze)
+def test_check_labyrinth_size(lab, expected_result):
+    labyrinth = Labyrinth(lab)
     assert labyrinth.check_labyrinth_size() == expected_result

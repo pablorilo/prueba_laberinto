@@ -26,7 +26,10 @@ Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, 
 
 **test/**: Directorio que contiene las pruebas unitarias para el proyecto.
 
-**test/test_labyrinth.py**: Archivo con pruebas unitarias para la clase Labyrinth.
+**test/test_labyrinth_size.py**: Archivo con pruebas unitarias para la clase Labyrinth concretamente para el metodo que comprueba si el laberinto 
+cumple con los requisitos.
+
+**test/test_labyrinth_movements.py**: Archivo con pruebas unitarias para la clase Labyrinth para comprobar que el algoritmo realiza correctamente los movimientos del objeto
 
 ## Uso del programa
 
