@@ -1,13 +1,13 @@
 # Prueba técnica DAMAVIS
-## Proyecto de Resolución de Laberintos
+# Proyecto de Resolución de Laberintos
 
 Este proyecto intenta implementar un programa que resuelve laberintos y encuentra la ruta más corta desde una posición de inicio hasta una posición de destino de un objeto que ocupa 3 celdas. El laberinto está representado como una matriz de celdas que pueden ser caminos '.' o paredes '#'.El objetivo es encontrar la ruta más corta desde la celda de inicio a la celda de destino, teniendo en cuenta que el objeto puede cambiar de posición y orientación en cada paso.
 
-### Funcionalidades
+## Funcionalidades
 
 Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, izquierda o derecha, siempre que no encuentre una pared. Además, el objeto puede rotar 90 grados en su posición actual.
 
-### Estructura del proyecto
+## Estructura del proyecto
 
 ```laberinto/
     ├── main.py
@@ -23,20 +23,40 @@ Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, 
 **test/**: Directorio que contiene las pruebas unitarias para el proyecto.
 **test/test_labyrinth.py**: Archivo con pruebas unitarias para la clase Labyrinth.
 
-### Requisitos del sistema
+## Uso del programa
 
-En el proyecto consta  de un requirements.txt con las dependencias necesarias para ejecutar el programa, para instaslar dichas dependencias ejecutaremos los siguientes comandos en el terminal dentro de la carpeta del proyecto
-Creamos un entorno virual
+1. Clona el repositorio en tu sistema local.
+2. Abre una terminal o línea de comandos en la ubicación del repositorio clonado.
+3. Crear entorno virtual e instalar dependencias: 
+        En el proyecto consta  de un requirements.txt con las dependencias necesarias para ejecutar el programa, para instaslar dichas dependencias ejecutaremos los siguientes comandos en el terminal dentro de la carpeta del proyecto
 
- ```python -m venv labenv```
+        Creamos un entorno virual:
+        * En Windows:
 
- Activamos el entorno 
+        ```python -m venv labenv```
 
- ```labenv\Scripts\activate```
+        * En macOS y Linux::
 
- Volvemos a la carpeta raiz ejecutando dos veces cd..
+        ```python3 -m venv myenv```
 
- Con el entorno virtual activado instalamos las dependencias 
+        Activamos el entorno 
+        * En Windows:
 
- ```pip install -r requirements.txt```
+        ```labenv\Scripts\activate```
+
+        * En macOS y Linux:
+
+        ```source myenv/bin/activate```
+
+        Volvemos a la carpeta raiz ejecutando dos veces cd..
+
+        Con el entorno virtual activado instalamos las dependencias 
+
+        ```pip install -r requirements.txt```
+4. En el fichero main.py introduce el laberinto
+5. Ejecuta el programa con el siguiente comando:
+
+```python main.py```
+
+
 
