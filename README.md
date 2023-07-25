@@ -14,13 +14,18 @@ Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, 
     ├── labyrinth.py
     ├── box.py
     └── test/
-         ├── test_labyrinth.py
+         ├── test_labyrinth_size.py
+         ├── test_labyrinth_movements.py
 ```
 
 **main.py**: Es el punto de entrada del programa que inicializa y ejecuta el laberinto.
+
 **labyrinth.py**: Contiene la clase Labyrinth que representa el laberinto y sus funcionalidades.
+
 **box.py**: Contiene la clase Box que representa el objeto en el laberinto y sus movimientos.
+
 **test/**: Directorio que contiene las pruebas unitarias para el proyecto.
+
 **test/test_labyrinth.py**: Archivo con pruebas unitarias para la clase Labyrinth.
 
 ## Uso del programa
