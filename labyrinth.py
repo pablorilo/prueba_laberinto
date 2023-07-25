@@ -55,3 +55,60 @@ class Labyrinth:
                 return False
 
         return True
+
+  
+  def can_move(self, row, column, direction):
+      #Verifica si la barra puede moverse en una dirección específica desde una celda dada. 
+      # La función recibe la fila y columna actual de la barra y la dirección a verificar
+      if direction == 'up':
+        if self.box.get_orientation() == 'H':
+            return 0 <= row - 1 and \
+                  self.labyrinth[row - 1][column + 1] == '.' and \
+                  self.labyrinth[row - 1][column] == '.' and \
+                  self.labyrinth[row - 1][column - 1] == '.'
+        if self.box.get_orientation() == 'V':
+            return 0 <= row - 2 and \
+                  self.labyrinth[row - 2][column] == '.'
+
+      if direction == 'down':
+        if self.box.get_orientation() == 'H':
+            return row + 1 <= len(self.labyrinth)-1 and \
+                  self.labyrinth[row + 1][column + 1] == '.' and \
+                  self.labyrinth[row + 1][column] == '.' and \
+                  self.labyrinth[row + 1][column - 1] == '.'
+        if self.box.get_orientation() == 'V':
+            return row + 2 < len(self.labyrinth)-1 and \
+                  self.labyrinth[row + 2][column] == '.'
+
+      if direction == "right":
+        if self.box.get_orientation() == 'H':
+            return column + 2 <= len(self.labyrinth[0])-1 and \
+                  self.labyrinth[row][column + 2] == '.'
+        if self.box.get_orientation() == 'V':
+            return column + 1 <= len(self.labyrinth[0])-1 and \
+                  self.labyrinth[row - 1][column + 1] == '.' and \
+                  self.labyrinth[row][column + 1] == '.' and \
+                  self.labyrinth[row + 1][column + 1] == '.'
+
+      if direction == "left":
+        if self.box.get_orientation() == 'H':
+            return 0 <= column - 2 and \
+                  self.labyrinth[row][column - 2] == '.'
+        if self.box.get_orientation() == 'V':
+            return 0 <= column - 1 and \
+                  self.labyrinth[row - 1][column - 1] == '.' and \
+                  self.labyrinth[row][column - 1] == '.' and \
+                  self.labyrinth[row + 1][column - 1] == '.'
+      if direction == 'rotation':
+        if self.box.get_orientation() == 'H':
+          return 0 <= row - 1 and \
+                row + 1 <= len(self.labyrinth) - 1  and \
+                self.labyrinth[row - 1][column] == '.' and \
+                self.labyrinth[row + 1][column] == '.'
+        if self.box.get_orientation() == 'V':
+          return column + 1 <= len(self.labyrinth[0])-1 and \
+                0 <= column - 1 and \
+                self.labyrinth[row][column - 1] == '.' and \
+                self.labyrinth[row][column + 1] == '.'
+
+  
