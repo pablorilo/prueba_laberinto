@@ -33,8 +33,9 @@ cumple con los requisitos.
 
 ## Uso del programa
 
-1. Clona el repositorio en tu sistema local.
-2. Abre una terminal o línea de comandos en la ubicación del repositorio clonado.
+1. Abre una terminal y clona el repositorio en tu sistema local dentro de una carpeta con el siguiente comando .
+    ```git clone https://github.com/pablorilo/prueba_laberinto.git```
+2.  Accede a la ubicación del repositorio clonado.
 3. Crear entorno virtual e instalar dependencias: 
     En el proyecto consta  de un requirements.txt con las dependencias necesarias para ejecutar el programa, para instaslar dichas dependencias ejecutaremos los siguientes comandos en el terminal dentro de la carpeta del proyecto
 
@@ -63,10 +64,10 @@ cumple con los requisitos.
     ```pip install -r requirements.txt```
        
 
-4. En el fichero main.py introduce el laberinto
+4. En el fichero main.py introduce el laberinto que deseeas comprobar
 5. Ejecuta el programa con el siguiente comando:
 
-```python main.py```
+    ```python main.py```
 
 
 

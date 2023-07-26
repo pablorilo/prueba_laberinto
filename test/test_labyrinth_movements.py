@@ -45,4 +45,6 @@ def test_can_move(labyrinth):
     assert labyrinth.can_move(4, 4, 'up') == False
     assert labyrinth.can_move(4, 4, 'rotation') == False
 
+    
+
   
