@@ -14,9 +14,11 @@ Movimiento y rotación del objeto: El objeto puede moverse hacia arriba, abajo, 
     ├── labyrinth.py
     ├── box.py
     └── test/
-         ├── test_labyrinth_size.py
-         ├── test_labyrinth_movements.py
-         ├── test_labyrinth_steps.py
+    │   ├── test_labyrinth_size.py
+    │   ├── test_labyrinth_movements.py
+    │   └── test_labyrinth_steps.py
+    └── README.md
+
 ```
 
 **main.py**: Es el punto de entrada del programa que inicializa y ejecuta el laberinto.
