@@ -97,65 +97,73 @@ class Labyrinth:
         valid_moves.append(direction)
     return valid_moves
   
+  def move(self):
+    print("\n####################### Comprobando dimensiones del laberinto #################################")
+    # Llamar a la función explore() con la posición inicial y otros parámetros, primeramente comprobamos si el laberinto cumple con las condiciones de forma
+    if self.check_labyrinth_size():
+        print("\n[INFO] Laberinto correcto")
+        path = []  # Lista para almacenar el camino
+        visited_cells = set()  # Conjunto para almacenar las celdas visitadas
+        print("[INFO] Iniciando pruebas\n")
+        if self.explore(self.start[0], self.start[1], self.position, path, visited_cells):
+            # Verificar si el camino llega a la posición final
+            if path[-1][0:2] == tuple(self.final):
+                print(f"Camino encontrado, numero de pasos: {len(path)}")
+                print(path)
+                return True
 
-  def explore(self, row, column, position, path, visited_cells):
-    # Función recursiva para explorar todas las opciones válidas y almacenar el camino en path
-    valid_moves = visited_cells[(row, column, position)]
-        
-    if (row, column, position) == (self.final[0], self.final[1], 'V'):
-        print(f"Camino encontrado: {path}")
-        self.steps = len(path)
-        return self.steps
-
-    if len(valid_moves) == 0:
-        print("Sin movimientos disponibles. Retrocediendo...")
+        print("Camino no encontrado.")
         return False
 
-    for direction in valid_moves.copy():  # Usamos copy() para iterar sobre una copia de la lista
-    
-        new_row, new_column, new_position  = row, column, position
-    
-        if direction == 'up':
-          entry = 'down'
-          new_row -= 1
-        elif direction == 'down':
-          entry = 'up'
-          new_row += 1
-        elif direction == 'right':
-          entry = 'left'
-          new_column += 1
-        elif direction == 'left':
-          entry = 'right'
-          new_column -= 1
-        elif direction == 'rotation':
-          entry = 'rotation'
-          new_position = 'V' if new_position == 'H' else 'H'
-            
-        valid_moves.remove(direction)
-        if (new_row, new_column, new_position) not in path:
-          path.append((new_row, new_column, new_position))
-          new_valid_moves = self.get_next_moves(new_row, new_column, new_position)
-          new_valid_moves.remove(entry)
-          visited_cells[(new_row, new_column, new_position)] = new_valid_moves
-          step = self.explore(new_row, new_column, new_position, path, visited_cells)
-          if not isinstance(step, int):
-             print(f"El número de pasos para salir del laberinto es {step}")
-          if step:
-            return True
-          else:
-            # Si no se encontró un camino, deshacemos el movimiento actual buscando que haya movimientos en la celda anterior, si no sigue buscando
-            while path and visited_cells[path[-1]]== []:
-              path.pop()          
-            row = path[-1][0]
-            column = path[-1][1]
-            new_position = path[-1][2]
+  def explore(self, row, column, position, path, visited_cells):
+    # Verifica si la posición actual ya ha sido visitada antes.
+    if (row, column, position) in visited_cells:
+        return False
 
+    # Verifica si la posición actual coincide con la posición final y si el objeto está en posición vertical ('V').
+    if (row, column) == tuple(self.final) and position == 'V':
+        # Si se ha alcanzado el estado final y el objeto está en posición vertical, agrega la posición actual al camino y finaliza la exploración.
+        path.append((row, column, position))
+        return True
+
+    # Explora todas las direcciones posibles desde la posición actual.
+    for direction in self.get_next_moves(row, column, position):
+        # Inicializa las nuevas coordenadas y la nueva posición del objeto según la dirección actual.
+        new_row, new_column, new_position = row, column, position
+
+        # Calcula las nuevas coordenadas y posición del objeto según la dirección actual.
+        if direction == 'up':
+            entry = 'down'
+            new_row -= 1
+        elif direction == 'down':
+            entry = 'up'
+            new_row += 1
+        elif direction == 'right':
+            entry = 'left'
+            new_column += 1
+        elif direction == 'left':
+            entry = 'right'
+            new_column -= 1
+        elif direction == 'rotation':
+            entry = 'rotation'
+            # Realiza la rotación del objeto cambiando su posición de horizontal a vertical o viceversa.
+            new_position = 'V' if new_position == 'H' else 'H'
+
+        # Agrega la posición actual al camino y marca la celda como visitada.
+        path.append((row, column, position))
+        print(path)
+        visited_cells.add((row, column, position))
+
+        # Verifica si es posible moverse a la nueva posición.
+        if self.can_move(new_row, new_column, entry):
+            # Si es posible, realiza la exploración desde la nueva posición y posición del objeto.
+            if self.explore(new_row, new_column, new_position, path, visited_cells):
+                return True
+        else:
+            # Si no es posible moverse, retrocede eliminando la posición actual del camino.
+            path.pop()
+
+    # Si no se encontró una solución en ninguna de las direcciones, retorna False.
     return False
-    
+
   
-  def move(self):
-        # Llama a la función explore() con la posición inicial y otros parámetros
-        path = [(self.box.row, self.box.column, self.position)]  # Lista para almacenar el camino
-        valid_moves = self.get_next_moves(self.box.row, self.box.column, self.position)
-        visited_cells = {(self.box.row, self.box.column, self.position): valid_moves}  # dict para almacenar las celdas visitadas
-        self.explore(self.box.row, self.box.column, self.position, path, visited_cells)
