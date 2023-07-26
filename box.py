@@ -20,3 +20,10 @@ class Box:
         str: La orientación actual del objeto ('H' para horizontal, 'V' para vertical).
       """
       return self.orientation
+  
+  def get_occupied_cells(self):
+        # Retorna las celdas ocupadas por el objeto en función de su orientación
+        if self.orientation == 'H':
+            return [(self.row, self.column), (self.row, self.column - 1), (self.row, self.column + 1)]
+        elif self.orientation == 'V':
+            return [(self.row, self.column), (self.row - 1, self.column), (self.row + 1, self.column)]
