@@ -3,3 +3,5 @@
 
 # Ignorar directorio pytest_cache
 .pytest_cache/
+
+__init__.py
