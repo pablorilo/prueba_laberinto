@@ -116,6 +116,7 @@ class Labyrinth:
         return False
 
   def explore(self, row, column, position, path, visited_cells):
+    """funcion recursiva que explora todos los caminos posibles"""
     # Verifica si la posición actual ya ha sido visitada antes.
     if (row, column, position) in visited_cells:
         return False

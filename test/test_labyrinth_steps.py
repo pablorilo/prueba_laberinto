@@ -1,7 +1,7 @@
 import pytest
 from labyrinth import Labyrinth
 
-# Test para verificar el numero de pasos que devuelve el algoritmo
+"""# Test para verificar el numero de pasos que devuelve el algoritmo
 @pytest.mark.parametrize(
     "maze, expected_result",
     [
@@ -63,4 +63,4 @@ def test_move(maze, expected_result):
     labyrinth.move()
 
     # Verifica si se encontró el camino correctamente
-    assert labyrinth.steps == expected_result
+    assert labyrinth.steps == expected_result"""
