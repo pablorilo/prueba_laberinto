@@ -9,7 +9,7 @@ with open('requirements.txt', 'r', encoding='utf-8') as f:
     install_requires = f.read().splitlines()
 
 setup(
-    name='nombre_del_proyecto',
+    name='Prueba Damavis',
     version='0.1',
     packages=find_packages(),
     install_requires=install_requires,
